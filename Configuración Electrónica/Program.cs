@@ -1,10 +1,12 @@
 ﻿using System;
     class Atomo{
+        private string[] elemento = new string[] {"Hidrógeno","Helio","Litio","Berilio","Boro","Carbono","Nitrógeno","Oxígeno","Flúor","Neón","Sodio","Magnesio","Aluminio","Silicio","Fósforo","Azufre","Cloro","Argón","Potasio","Calcio","Escandio","Titanio","Vanadio","Cromo","Manganeso","Hierro","Cobalto","Níquel","Cobre","Zinc","Galio","Germanio","Arsénico","Selenio","Bromo","Kriptón","Rubidio","Estroncio","Itrio","Zirconio","Niobio","Molibdeno","Tecnecio","Rutenio","Rodio","Paladio","Plata","Cadmio","Indio","Estaño","Antimonio","Teluro","Yodo","Xenón","Cesio","Bario","Lantano","Cerio","Praseodimio","Neodimio","Prometio","Samario","Europio","Gadolinio","Terbio","Disprosio","Holmio","Erbio","Tulio","Iterbio","Lutecio","Hafnio","Tantalio","Wolframio","Renio","Osmio","Iridio","Platino","Oro","Mercurio","Talio","Plomo","Bismuto","Polonio","Astato","Radón","Francio","Radio","Actinio","Torio","Protactinio","Uranio","Neptunio","Plutonio","Americio","Curio","Berkelio","Californio","Einstenio","Fermio","Mendelevio","Nobelio","Laurencio"};
         private String[] nivel = new String[] {"1s","2s","2p","3s","3p","4s","3d","4p","5s","4d","5p","6s","4f","5d","6p","7s","5f","6d","7p"};
         private int[] carga = new int[] {2,2,6,2,6,2,10,6,2,10,6,2,14,10,6,2,14,10,6};
         private int[] configElec = new int[19];
         public int getConfigElec(int i)=>configElec[i];
         public string getNivel(int i)=>nivel[i];
+        public string getElemento(int e)=>elemento[e-1];
         public void confige(int e){
             for(int i=0;i<19;i++){
                 if (e>=carga[i]){
@@ -93,17 +95,18 @@
 
             a1.confige(e);
 
+            Console.Write("La Configuración Electrónica del {0} es:",a1.getElemento(e) );
             for(int i=0;i<19;i++){
                 if(a1.getConfigElec(i)==0) break;
-                Console.Write("{0}{1} ",a1.getNivel(i),a1.getConfigElec(i));
+                Console.Write(" {0}{1}",a1.getNivel(i),a1.getConfigElec(i));
             }
             Console.WriteLine();
 
-            c1.ordenar(e);
+            /*c1.ordenar(e);
 
             for(int i=0;i<19;i++){
                 Console.Write("{0}{1} ",c1.getGrupos(i),c1.getElectrones(i));
             }
-            Console.WriteLine();
+            Console.WriteLine();*/
         }
     }
